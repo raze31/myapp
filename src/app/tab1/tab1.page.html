@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="header">
     <ion-title>
-      Tab 1
+     Profile
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,6 +12,15 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-toolbar class="images">
+    <ion-img src="assets/imgs/ray.jpg"></ion-img>
+  </ion-toolbar>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ionic-toolbar class="profile">
+    <p>Name: Raymund V. Opeña</p>
+    <p>Address: Carigara Leyte</p>
+    <p>Birthday: April 12, 1999</p>
+    <p>Age: 21</p>
+    <p>Gender: Male</p>
+  </ionic-toolbar>
 </ion-content>

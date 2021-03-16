@@ -1,0 +1,26 @@
+.header{
+    --background: rgb(56, 15, 15);
+    color: rgb(233, 229, 224);
+    text-align: center;
+}
+p{ 
+    font-size: 20px;
+    font-family: sans serif;
+}
+
+ion-img{
+    margin-left: 35%;
+    height: 400px;
+    width: 30%;
+    float: left;
+}
+.profile{
+    --background: rgb(139, 21, 21);
+    text-align: center;
+}
+ion-content{
+    background-color: rgb(223, 233, 236);
+}
+.images{
+    --background: rgb(245, 240, 240);
+}
