@@ -1,6 +1,4 @@
 .head1{
-    --background: rgb(56, 15, 15);
-    color: rgb(233, 229, 224);
     text-align: center;
 }
 big{
@@ -8,11 +6,21 @@ big{
     margin-left: 25px;
 }
 ion-card{
-    margin-left: 175px;
-    width: 80%;
+    margin-left: 100px;
+    width: 40%;
+    float: left;
 }
-ion-card:hover{
-    border: 1px solid burlywood;
-    width: 85%;
+ion-list{
+    width: 40%;
+    float: right;
+    margin-right: 100px;
+    margin-top: 9px;
+}
+ion-button{
+    width: 80%;
+    margin-bottom: 30px;
 
+}
+h2{
+    margin-bottom: 10px;
 }
