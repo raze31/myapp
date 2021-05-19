@@ -1,32 +1,40 @@
 import { Injectable } from '@angular/core';
-import { resolve } from 'node:path';
+import {Plugins} from '@capacitor/core';
+const { Camera, Filesystem, Storage } = Plugins;
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
+import { ConvertActionBindingResult } from '@angular/compiler/src/compiler_util/expression_converter';
+import { Contact } from './contact';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactServicesService {
-  DATA_STORAGE = 'data';
-  constructor() { }
+  contactListRef: AngularFireList<any>;
+  contactRef: AngularFireObject<any>;
+  aptService: any;
 
-  contacts = [];
-  saveContacts(param: any): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.getData().then(data => {
-        let tempContact = [];
-        for(let i = 0; i < data.length; i++){
-          tempContact.push(data[i]);
-        }
-        tempContact.push(param);
-        Storage.set({key: this.DATA_STORAGE, value: JSON.stringify(tempContact)});
-        resolve(tempContact);
-      })
-    });
+  constructor(private db: AngularFireDatabase) { }
+
+  createContact(cont: Contact){
+    return this.contactListRef.push({
+      name: cont.name,
+      mobile: cont.mobile
+    })
   }
 
-
-
-  public async getData(){
-    const cont = await Storage.get({ key:this.DATA_STORAGE });
-    return JSON.parse(cont.value) || [];
+  getContact(id: string) {
+    this.contactRef = this.db.object('/contact/' + id);
+    return this.contactRef
   }
+
+  getContactList(){ 
+    this.contactListRef = this.db.list('/contact/');
+    return this.contactListRef;
+  }
+
+  deleteContact(id: string) {
+    this.contactRef = this.db.object('/contact/' + id);
+    return this.contactRef.remove;
+  }
+
 }
