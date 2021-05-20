@@ -34,7 +34,7 @@ export class ContactServicesService {
 
   deleteContact(id: string) {
     this.contactRef = this.db.object('/contact/' + id);
-    return this.contactRef.remove;
+    this.contactRef.remove();
   }
 
 }
